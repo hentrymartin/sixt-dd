@@ -1,0 +1,38 @@
+<div class="app">
+  <div class="app__left-column">
+    <div class="app__left-column__list">
+      <li
+        class="app__left-column__list__item"
+        data-ng-repeat="item in vm.items"
+        draggable-element transfer-data="item.code">
+        <input
+          type="checkbox"
+          ng-model="item.isChecked"
+          ng-checked="item.isChecked"
+        />
+        <span>{{item.name}}</span>
+      </li>
+    </div>
+  </div>
+
+  <div class="app__middle">
+    <button
+      class="app__middle__move"
+      ng-click="vm.moveItems()"
+    >
+      Move
+    </button>
+  </div>
+  <div class="app__right-column">
+    <div
+      class="app__left-column__list"
+      droppable-element
+      on-drop="vm.onDrop">
+      <li
+        class="app__left-column__list__item"
+        data-ng-repeat="item in vm.chosenItems">
+        <span>{{item.name}}</span>
+      </li>
+    </div>
+  </div>
+</div>
